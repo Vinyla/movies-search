@@ -1,0 +1,10 @@
+export const FETCH_MOVIES = 'FETCH_MOVIES';
+export const SEARCH_MOVIE = 'SEARCH_MOVIE';
+export const FETCH_MOVIE = 'FETCH_MOVIE';
+export const FETCH_DETAILS = 'FETCH_DETAILS';
+export const FETCH_RELEASES = 'FETCH_RELEASES';
+export const FETCH_REVIEWS = 'FETCH_REVIEWS';
+export const FETCH_GENRES = 'FETCH_GENRES';
+export const FETCH_AWARDS = 'FETCH_AWARDS';
+export const FETCH_MORE_LIKE_THIS = 'FETCH_MORE_LIKE_THIS';
+
