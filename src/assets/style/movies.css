@@ -24,6 +24,9 @@ body {
   width: 130px;
   padding-top: 20px;
 }
+.input-div {
+  padding-right: 20px;
+}
 
 .input-div input {
   background-color: #ffffff;
@@ -59,7 +62,7 @@ body {
 
 .cards {
   display: grid;
-  grid-template-columns: repeat(5, 280px);
+  grid-template-columns: repeat(5, 250px);
   grid-gap: 20px;
   margin: 10px 0;
   justify-content: center;
@@ -68,18 +71,21 @@ body {
 .card {
   transition: box-shadow 0.3s ease-in-out;
   padding: 20px;
+  display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  display: flex;
+  text-align: center;
   cursor: pointer;
   border-radius: 14px;
 }
 
+.card a {
+  text-decoration: 'none';
+}
+
 .card img {
-  width: 250px;
-  height: 350px;
-  object-fit: cover;
+  width: 200px;
+  height: 280px;
 }
 
 .card:hover {
@@ -125,6 +131,10 @@ body {
   padding: 0;
 }
 
+.left .card a {
+  cursor: auto;
+}
+
 .left .card:hover {
   cursor: auto;
   box-shadow: none;
@@ -134,10 +144,40 @@ body {
   cursor: auto;
 }
 
-
 .right {
   width: 70%;
   padding: 20px;
+}
+
+.section-title {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.section-title h2 {
+  border-radius: 14px;
+  background-color: #039642;
+  padding: 10px 16px;
+  letter-spacing: 2px;
+}
+
+.more-movies {
+  display: grid;
+  grid-template-columns: repeat(10, 145px);
+  grid-gap: 5px;
+  margin: 10px 0;
+  justify-content: center;
+}
+
+.more-movies .card {
+  padding: 10px;
+}
+
+.more-movies .card img {
+  width: 120px;
+  height: 160px;
+  border-radius: 5px;
 }
 
 @media screen and (max-width: 1024px) {

@@ -11,7 +11,7 @@ const Movies = () => {
         <Header />
         <Routes>
           <Route path='/' element={<MainScreen />} />
-          <Route path='/:id' element={<DetailsScreen />} />
+          <Route path='/details/:id' element={<DetailsScreen />} />
         </Routes>
       </BrowserRouter>
     </div>

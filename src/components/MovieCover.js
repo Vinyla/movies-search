@@ -4,28 +4,23 @@ import noImg from '../assets/images/undefined.png';
 import { useDispatch } from 'react-redux';
 import { fetchMovie } from '../redux/actions/moviesActions';
 
-const MovieCover = ({ movie, id }) => {
+const MovieCover = ({ movie, image, title }) => {
   const dispatch = useDispatch();
-  const movieId = id && id.split('/')[2];
 
-  const getMovie = () => {
+  const onMovieCoverClick = () => {
     dispatch(fetchMovie(movie));
   };
 
   return (
-    <div className='card' onClick={getMovie}>
-      <Link to={`${movieId}`} style={{ textDecoration: 'none' }}>
-        {movie.image === undefined ? (
-          <img src={noImg} alt='Img undefined' />
+    <div className='card' onClick={onMovieCoverClick}>
+      <Link to={'/details/' + movie.id} style={{ textDecoration: 'none' }}>
+        {image ? (
+          <img src={image} alt='Movie img' />
         ) : (
-          <img src={movie.image.url} alt='Movie img' />
+          <img src={noImg} alt='Img undefined' />
         )}
+        {title ? <p>{title.substr(0, 28)}</p> : <p>Title not found</p>}
       </Link>
-      {movie.title === undefined ? (
-        <p>Title not found</p>
-      ) : (
-        <p>{movie.title.substr(0, 28)}</p>
-      )}
     </div>
   );
 };
