@@ -25,3 +25,10 @@ export const fetchReviews = (reviews) => {
     payload: reviews
   };
 };
+
+export const searchNotFound = (notFound) => {
+  return {
+    type: 'NOT_FOUND',
+    payload: notFound
+  };
+};

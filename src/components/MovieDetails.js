@@ -5,7 +5,7 @@ const MovieDetails = ({ details, reviews }) => {
     <div>
       <h2>Movie details</h2>
       <p>Releases: {details?.releaseDate}</p>
-      <p>Reviews: {reviews?.content.substr(0, 250)}...</p>
+      <p>Reviews: {reviews?.content}</p>
       <p>Genres: {details?.genres}</p>
       <p>Awards: {details?.awards}</p>
     </div>

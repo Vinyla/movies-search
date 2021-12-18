@@ -7,6 +7,7 @@ import MovieList from './MovieList';
 const MainScreen = () => {
   const movies = useSelector((state) => state.movies.movies);
   const text = useSelector((state) => state.movies.text);
+  const notFound = useSelector((state) => state.movies.notFound);
 
   const dispatch = useDispatch();
   const API_KEY = process.env.REACT_APP_IMDB_API;
@@ -29,7 +30,11 @@ const MainScreen = () => {
 
   return (
     <div>
-      <MovieList movies={movies} />
+      {movies.length === 0 ? (
+        `No results found for : ${notFound}`
+      ) : (
+        <MovieList movies={movies} />
+      )}
     </div>
   );
 };

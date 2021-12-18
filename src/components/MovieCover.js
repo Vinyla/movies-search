@@ -1,26 +1,21 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import noImg from '../assets/images/undefined.png';
 import { useDispatch } from 'react-redux';
 import { fetchMovie } from '../redux/actions/moviesActions';
+import { useNavigate } from 'react-router-dom';
 
 const MovieCover = ({ movie, image, title }) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const onMovieCoverClick = () => {
     dispatch(fetchMovie(movie));
+    navigate('/details/' + movie.id);
   };
 
   return (
     <div className='card' onClick={onMovieCoverClick}>
-      <Link to={'/details/' + movie.id} style={{ textDecoration: 'none' }}>
-        {image ? (
-          <img src={image} alt='Movie img' />
-        ) : (
-          <img src={noImg} alt='Img undefined' />
-        )}
-        {title ? <p>{title.substr(0, 28)}</p> : <p>Title not found</p>}
-      </Link>
+      <div>{image && <img src={image} alt='Movie img' />}</div>
+      <div>{title ? <p>{title.substr(0, 28)}</p> : <p>Title not found</p>}</div>
     </div>
   );
 };

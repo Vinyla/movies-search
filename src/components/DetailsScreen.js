@@ -22,7 +22,7 @@ const DetailsScreen = () => {
         `https://imdb-api.com/en/API/Title/${API_KEY}/${movie.id}`
       );
       dispatch(fetchDetails(response.data));
-      console.log(response.data);
+      // console.log(response.data);
       return response.data;
     } catch (error) {
       console.log(error);
@@ -59,7 +59,7 @@ const DetailsScreen = () => {
         </div>
       </div>
       <div className='section-title'>
-        <h2>More movies like this</h2>
+        <h3>More movies like this</h3>
       </div>
       <div className='more'>
         <MoreLikeThis details={details} movie={movie} />
