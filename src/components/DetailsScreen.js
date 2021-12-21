@@ -11,7 +11,7 @@ const DetailsScreen = () => {
   const details = useSelector((state) => state.details.details);
   const reviews = useSelector((state) => state.details.reviews)
   const movie = useSelector((state) => state.movies.movie);
-
+  
   const dispatch = useDispatch();
 
   const API_KEY = process.env.REACT_APP_IMDB_API;

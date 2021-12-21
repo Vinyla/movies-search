@@ -1,8 +1,8 @@
 const initialState = {
-  movies: [],
+  movies: ['null'],
   movie: {},
-  text: 'hacker',
-  notFound: ''
+  text: 'The Godfather',
+  notFound: '',
 };
 
 export const moviesReducers = (state = initialState, action) => {
@@ -16,11 +16,6 @@ export const moviesReducers = (state = initialState, action) => {
       return {
         ...state,
         movie: action.payload
-      };
-    case 'SEARCH_MOVIES':
-      return {
-        ...state,
-        text: action.payload
       };
     case 'NOT_FOUND':
       return {

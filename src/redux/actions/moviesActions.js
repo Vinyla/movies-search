@@ -1,8 +1,9 @@
 export const fetchMovies = (movies) => {
-  return {
-    type: 'FETCH_MOVIES',
-    payload: movies
-  };
+
+    return {
+      type: 'FETCH_MOVIES',
+      payload: movies
+    };
 };
 
 export const fetchMovie = (movie) => {
@@ -19,6 +20,7 @@ export const fetchDetails = (details) => {
   };
 };
 
+
 export const fetchReviews = (reviews) => {
   return {
     type: 'FETCH_REVIEWS',
@@ -32,3 +34,4 @@ export const searchNotFound = (notFound) => {
     payload: notFound
   };
 };
+

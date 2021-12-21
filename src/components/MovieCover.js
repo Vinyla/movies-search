@@ -15,7 +15,7 @@ const MovieCover = ({ movie, image, title }) => {
   return (
     <div className='card' onClick={onMovieCoverClick}>
       <div>{image && <img src={image} alt='Movie img' />}</div>
-      <div>{title ? <p>{title.substr(0, 28)}</p> : <p>Title not found</p>}</div>
+      <div>{title && <p>{title.substr(0, 28)}</p>} </div>
     </div>
   );
 };

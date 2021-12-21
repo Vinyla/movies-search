@@ -1,19 +1,32 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { fetchMovies, searchNotFound } from '../redux/actions/moviesActions';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const SearchMovie = () => {
+  const text = useSelector((state) => state.movies.text);
   const [inputText, setInputText] = useState('');
   const navigate = useNavigate();
-
   const dispatch = useDispatch();
+
   const API_KEY = process.env.REACT_APP_IMDB_API;
 
-  const onChange = (e) => {
-    setInputText(e.target.value);
-  };
+  useEffect(async () => {
+    if (inputText.length === 0) {
+      try {
+        const response = await axios.get(
+          `https://imdb-api.com/en/API/Search/${API_KEY}/${text}`
+        );
+        dispatch(fetchMovies(response.data.results));
+        dispatch(searchNotFound(inputText));
+        // console.log(response.data.results);
+        return response.data.results;
+      } catch (error) {
+        console.log(error);
+      }
+    } else onMovieSearch();
+  }, []);
 
   const onMovieSearch = async () => {
     try {
@@ -23,10 +36,14 @@ const SearchMovie = () => {
       dispatch(fetchMovies(response.data.results));
       dispatch(searchNotFound(inputText));
       // console.log(response.data.results);
-      return response.data;
+      return response.data.results;
     } catch (error) {
       console.log(error);
     }
+  };
+
+  const onInputChange = (e) => {
+    setInputText(e.target.value);
   };
 
   const onMovieSubmit = (e) => {
@@ -39,11 +56,12 @@ const SearchMovie = () => {
   return (
     <div className='input-div'>
       <input
-        onChange={onChange}
-        value={inputText}
+        placeholder='Search movie...'
+        onChange={onInputChange}
         type='text'
         name='movie'
         placeholder='Search...'
+        value={inputText}
       />
       <button disabled={!inputText} onClick={onMovieSubmit}>
         Submit
