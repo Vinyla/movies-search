@@ -293,7 +293,7 @@ body {
   }
   .more-movies {
     display: grid;
-    grid-template-columns: repeat(1, 250px);
+    grid-template-columns: repeat(3, 150px);
   }
   .more-movies img {
     width: 100%;
